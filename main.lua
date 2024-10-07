@@ -1,10 +1,14 @@
 local source = [[
-and you know me 2==1 im the bomb 
-fein("yes")
-yeah im the bomb 2==2 im the bomb
-fein("no") 
+diddy party v1 hawk p1 tuah
+  and you know me p1 == sigma im the bomb
+    love all my supporters its time "yay"
+  bomb
+    love all my supporters its time "noo"
+  never see me again
 never see me again
-]]
+fein hawk v1 hawk sigma tuah tuah
+fein hawk "go go go go" tuah
+]] -- code to run goes inside of source
 
 -- configs
 
@@ -26,7 +30,6 @@ local operators = {
     ["hawk"] = "(",
     ["tuah"] = ")",
     ["diddy party"] = "function",
-    
 }
 
 -- lexer
@@ -37,15 +40,61 @@ for phrase in pairs(operators) do
 end
 table.sort(sortedOperators, function(a, b) return #a > #b end)
 
-for _, phrase in ipairs(sortedOperators) do
-    local replacement = operators[phrase]
-    source = string.gsub(source, phrase, replacement)
+local function escape_pattern(text)
+    return text:gsub("([^%w])", "%%%1")
 end
 
+local function replace_outside_quotes(source)
+    local result = {}
+    local inside_string = false
+    local current_string = ""
+    
+    for line in source:gmatch("[^\n]*\n?") do
+        local processed_line = ""
+        local i = 1
+
+        while i <= #line do
+            local char = line:sub(i, i)
+
+            if char == '"' then
+                inside_string = not inside_string
+            end
+
+            if inside_string then
+                processed_line = processed_line .. char
+            else
+                local replaced = false
+                for _, phrase in ipairs(sortedOperators) do
+                    local pattern = "^" .. escape_pattern(phrase)
+                    local match = line:sub(i):match(pattern)
+                    if match then
+                        processed_line = processed_line .. operators[phrase]
+                        i = i + #phrase - 1
+                        replaced = true
+                        break
+                    end
+                end
+
+                if not replaced then
+                    processed_line = processed_line .. char
+                end
+            end
+
+            i = i + 1
+        end
+
+        table.insert(result, processed_line)
+    end
+
+    return table.concat(result)
+end
+
+source = replace_outside_quotes(source)
+
 if printSource then
-  print("--------------------SOURCE--------------------")
+    print("--------------------SOURCE--------------------")
     print(source)
-  print("------------------END SOURCE------------------")
+    print("------------------END SOURCE------------------")
 end
 
 -- environment
