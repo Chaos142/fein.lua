@@ -19,6 +19,9 @@ local operators = {
     ["yeah im the bomb"] = "elseif",
     ["love all my supporters its time"] = "return",
     ["fein"] = "print",
+    ["runaway"] = "local",
+    ["sigma"] = "true",
+    ["skibidi"] = "false",
 }
 
 -- lexer
