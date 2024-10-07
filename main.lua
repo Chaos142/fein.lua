@@ -15,7 +15,8 @@ fein hawk "go go go go" tuah
 local printSource = true
 
 local operators = {
-    ["go go go go"] = "while true do",
+    ["head so good"] = "while",
+    ["go go go go"] = "do",
     ["never see me again"] = "end",
     ["and you know me"] = "if",
     ["im the bomb"] = "then",
