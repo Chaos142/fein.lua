@@ -91,12 +91,6 @@ end
 
 source = replace_outside_quotes(source)
 
-if printSource then
-    print("--------------------SOURCE--------------------")
-    print(source)
-    print("------------------END SOURCE------------------")
-end
-
 -- environment
 
 local env = {
