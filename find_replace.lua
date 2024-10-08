@@ -27,10 +27,17 @@ local operators = {
     ["runaway"] = "local",
     ["sigma"] = "true",
     ["skibidi"] = "false",
-    ["as fast as you can"] = "_G.",
+    ["as fast as you can "] = "_G.",
     ["hawk"] = "(",
     ["tuah"] = ")",
     ["diddy party"] = "function",
+    ["twin"] = "==",
+    ["edges"] = "<",
+    ["busts"] = ">",
+    ["gyatt"] = "for",
+    ["jelqs"] = "=",
+    ["dominant"] = "+",
+    ["submissive"] = "-",
 }
 
 -- lexer
