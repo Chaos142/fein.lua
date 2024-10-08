@@ -1,5 +1,5 @@
 local source = [[
-  feincode source here
+  fein hawk "Hello world!" tuah
 ]]
 
 -- configs
