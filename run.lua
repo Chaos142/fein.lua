@@ -44,7 +44,6 @@ local operators = {
     ["jelqs"] = "=",
     ["dominant"] = "+",
     ["submissive"] = "-",
-    -- to do: comment support (haii / baii??)
 }
 
 -- lexer
@@ -106,12 +105,6 @@ end
 
 source = replace_outside_quotes(source)
 
-if printSource then
-    print("--------------------SOURCE--------------------")
-    print(source)
-    print("------------------END SOURCE------------------")
-end
-
 -- environment
 
 local env = {
@@ -156,6 +149,10 @@ if func then
     local status, runtimeErr = pcall(func)
     if not status then
         print("Runtime error in translated code:", runtimeErr)
+    end
+else
+    print("Error in translated code:", err)
+end
     end
 else
     print("Error in translated code:", err)
