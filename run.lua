@@ -13,7 +13,7 @@ local source = file:read("*a")
 file:close()
 
 local printSource = false
-print("Enable print source? (Type yes to enable)")
+print("Print source code? (Type yes to enable)")
 local enableSource = io.read()
 if string.lower(enableSource) == "yes" then
     printSource = true
@@ -33,10 +33,17 @@ local operators = {
     ["runaway"] = "local",
     ["sigma"] = "true",
     ["skibidi"] = "false",
-    ["as fast as you can"] = "_G.",
+    ["as fast as you can "] = "_G.",
     ["hawk"] = "(",
     ["tuah"] = ")",
     ["diddy party"] = "function",
+    ["twin"] = "==",
+    ["edges"] = "<",
+    ["busts"] = ">",
+    ["gyatt"] = "for",
+    ["jelqs"] = "=",
+    ["dominant"] = "+",
+    ["submissive"] = "-",
 }
 
 -- lexer
@@ -110,13 +117,15 @@ local env = {
     read = function() return io.stdin:read(1):byte() end,
     write = function(c) io.stdout:write(string.char(c)) end,
 
-    -- custom functions
+    -- custom functions (these dont work rn btw)
     wait = function(t)
         t = t or 0.01
         local start = os.clock()
         while os.clock() - start < t do
         end
     end,
+
+    comment = function(a) end -- basically to use this just do comment( MY COMMENT HERE ) and the feincode syntax will be different probably idk when ill add that
 }
 
 setmetatable(env, {__index = function(t, k)
