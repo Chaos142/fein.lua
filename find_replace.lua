@@ -1,14 +1,6 @@
 local source = [[
-diddy party v1 hawk p1 tuah
-  and you know me p1 == sigma im the bomb
-    love all my supporters its time "yay"
-  bomb
-    love all my supporters its time "noo"
-  never see me again
-never see me again
-fein hawk v1 hawk sigma tuah tuah
-fein hawk "go go go go" tuah
-]] -- code to run goes inside of source
+  feincode source here
+]]
 
 -- configs
 
@@ -107,6 +99,8 @@ end
 
 -- environment
 
+-- environment
+
 local env = {
     i = 0,
     t = setmetatable({}, {__index = function() return 0 end}),
@@ -120,14 +114,34 @@ local env = {
         while os.clock() - start < t do
         end
     end,
+    
+    printTest = function(t)
+        print(t)
+    end,
+
+    anotherFunction = function()
+        print("This is another function!")
+    end
 }
 
+-- Correctly set up metatable for environment lookup
 setmetatable(env, {__index = function(t, k)
-    return _G[k] or t.t[t.i]
+    -- Check if function/variable exists in the environment first, then fall back to global _G
+    return rawget(t, k) or _G[k]
 end,
 __newindex = function(t, k, v)
-    t.t[t.i] = v
+    -- Assign new variables to the environment's table
+    rawset(t, k, v)
 end })
+
+-- Source translation logic remains the same
+source = replace_outside_quotes(source)
+
+if printSource then
+    print("--------------------SOURCE--------------------")
+    print(source)
+    print("------------------END SOURCE------------------")
+end
 
 -- runtime
 
