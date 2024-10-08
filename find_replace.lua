@@ -1,10 +1,11 @@
 local source = [[
-  fein hawk "Hello world!" tuah
+fein hawk "Hello world!" tuah
 ]]
 
 -- configs
 
 local printSource = true
+local compileToFeincode = false
 
 local operators = {
     ["head so good"] = "while",
@@ -31,6 +32,18 @@ local operators = {
     ["dominant"] = "+",
     ["submissive"] = "-",
 }
+
+function reverseTable(tbl)
+    local reversed = {}
+    for key, value in pairs(tbl) do
+        reversed[value] = key
+    end
+    return reversed
+end
+
+if compileToFeincode then
+  operators = reverseTable(operators)
+end
 
 -- lexer
 
@@ -129,13 +142,15 @@ end
 
 -- runtime
 
-local func, err = load(source, "fein.lua", "t", env) or loadstring(source, "fein.lua", "t", env)
-
-if func then
-    local status, runtimeErr = pcall(func)
-    if not status then
-        print("Runtime error in translated code:", runtimeErr)
-    end
-else
-    print("Error in translated code:", err)
+if not compileToFeincode then
+  local func, err = load(source, "fein.lua", "t", env) or loadstring(source, "fein.lua", "t", env)
+  
+  if func then
+      local status, runtimeErr = pcall(func)
+      if not status then
+          print("Runtime error in translated code:", runtimeErr)
+      end
+  else
+      print("Error in translated code:", err)
+  end
 end
