@@ -113,15 +113,18 @@ local env = {
     write = function(c) io.stdout:write(string.char(c)) end,
 
     -- custom functions
-    wait = function(t)
-        t = t or 0.01
+    wait = function(n)
+        n = n or 0.015
         local start = os.clock()
-        while os.clock() - start < t do
+        while os.clock() - start < n do
         end
     end,
     
     printTest = function(t)
         print(t)
+    end,
+    
+    haii = function (t) -- to comment in feincode just do haii("my comment here")
     end,
 }
 
