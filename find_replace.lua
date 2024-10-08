@@ -116,10 +116,6 @@ local env = {
     printTest = function(t)
         print(t)
     end,
-
-    anotherFunction = function()
-        print("This is another function!")
-    end
 }
 
 setmetatable(env, {__index = function(t, k)
