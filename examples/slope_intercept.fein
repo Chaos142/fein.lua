@@ -1,0 +1,63 @@
+fein hawk "Enter the coordinates of point 1 with a space between x y:" tuah
+runaway firstX = io.read hawk "*n" tuah
+runaway firstY = io.read hawk "*n" tuah
+fein hawk "Enter the coordinates of point 2 with a space between x y:" tuah
+runaway secondX = io.read hawk "*n" tuah
+runaway secondY = io.read hawk "*n" tuah
+
+diddy party checkValidity hawk x1, y1, x2, y2 tuah
+    and you know me x1 twin x2 im the bomb
+        and you know me y1 twin y2 im the bomb
+            fein hawk "These points are the same!" tuah
+            fein hawk "Equation of the line:there is not a unique line through these points" tuah
+            love all my supporters its time false
+        bomb
+            fein hawk "Alert! The line is vertical." tuah
+            fein hawk "Equation of the line:x=" .. x1 tuah
+            love all my supporters its time false
+        never see me again
+    yeah im the bomb y1 twin y2 im the bomb
+        fein hawk "Alert! The line is horizontal." tuah
+        fein hawk "Equation of the line:y=" .. y1 tuah
+        love all my supporters its time false
+    never see me again
+    love all my supporters its time true
+never see me again
+    
+diddy party calcSlope hawk x1, y1, x2, y2 tuah
+    runaway rise jelqs y2 submissive y1
+    runaway run jelqs x2 submissive x1
+    
+    love all my supporters its time rise / run
+never see me again
+
+diddy party calcYIntercept hawk x1, y1, x2, y2 tuah
+    runaway slope jelqs calcSlope hawk x1, y1, x2, y2 tuah
+    runaway mx jelqs slope * x1
+    love all my supporters its time y1 submissive mx
+never see me again
+
+diddy party printEquation hawk x1, y1, x2, y2 tuah
+    and you know me not checkValidity hawk x1, y1, x2, y2 tuah im the bomb love all my supporters its time never see me again
+    io.write hawk "Equation of the line:y=" tuah
+    runaway slope jelqs calcSlope(x1, y1, x2, y2);
+    runaway intercept jelqs calcYIntercept(x1, y1, x2, y2);
+    and you know me slope ~jelqs 1.0 im the bomb
+        and you know me slope twin -1.0 im the bomb
+            io.write hawk "-" tuah
+        bomb
+            io.write hawk slope tuah
+        never see me again
+    never see me again
+    io.write hawk "x" tuah
+    and you know me intercept ~jelqs 0.0 im the bomb
+        and you know me intercept busts 0 im the bomb
+            io.write hawk "+" tuah
+        never see me again
+        io.write hawk intercept tuah
+    never see me again
+    fein hawk "\n" tuah;
+never see me again
+
+printEquation hawk firstX, firstY, secondX, secondY tuah
+fein hawk "end of main" tuah
