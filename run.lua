@@ -1,8 +1,6 @@
--- prompt user for file name
 io.write("Enter the file name you want to run: ")
 local filename = io.read()
 
--- read the file contents
 local file = io.open(filename, "r")
 if not file then
     print("Could not open file:", filename)
@@ -19,6 +17,8 @@ if string.lower(enableSource) == "yes" then
     printSource = true
 end
 os.execute("cls")
+
+-- everything below here is the same as before
 
 local operators = {
     ["head so good"] = "while",
@@ -44,9 +44,11 @@ local operators = {
     ["jelqs"] = "=",
     ["dominant"] = "+",
     ["submissive"] = "-",
+    -- to do: comment support (haii / baii??)
 }
 
 -- lexer
+
 local sortedOperators = {}
 for phrase in pairs(operators) do
     table.insert(sortedOperators, phrase)
@@ -61,7 +63,7 @@ local function replace_outside_quotes(source)
     local result = {}
     local inside_string = false
     local current_string = ""
-
+    
     for line in source:gmatch("[^\n]*\n?") do
         local processed_line = ""
         local i = 1
@@ -111,32 +113,44 @@ if printSource then
 end
 
 -- environment
+
 local env = {
     i = 0,
     t = setmetatable({}, {__index = function() return 0 end}),
     read = function() return io.stdin:read(1):byte() end,
     write = function(c) io.stdout:write(string.char(c)) end,
 
-    -- custom functions (these dont work rn btw)
+    -- custom functions
     wait = function(t)
         t = t or 0.01
         local start = os.clock()
         while os.clock() - start < t do
         end
     end,
-
-    comment = function(a) end -- basically to use this just do comment( MY COMMENT HERE ) and the feincode syntax will be different probably idk when ill add that
+    
+    printTest = function(t)
+        print(t)
+    end,
 }
 
 setmetatable(env, {__index = function(t, k)
-    return _G[k] or t.t[t.i]
+    return rawget(t, k) or _G[k]
 end,
 __newindex = function(t, k, v)
-    t.t[t.i] = v
+    rawset(t, k, v)
 end })
 
+source = replace_outside_quotes(source)
+
+if printSource then
+    print("--------------------SOURCE--------------------")
+    print(source)
+    print("------------------END SOURCE------------------")
+end
+
 -- runtime
-local func, err = loadstring(source, "fein.lua", "t", env)
+
+local func, err = load(source, "fein.lua", "t", env) or loadstring(source, "fein.lua", "t", env)
 
 if func then
     local status, runtimeErr = pcall(func)
