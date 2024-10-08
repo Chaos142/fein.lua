@@ -135,7 +135,7 @@ end
 
 -- runtime
 
-local func, err = load(source, "fein.lua", "t", env)
+local func, err = load(source, "fein.lua", "t", env) or loadstring(source, "fein.lua", "t", env)
 
 if func then
     local status, runtimeErr = pcall(func)
