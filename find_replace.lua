@@ -99,8 +99,6 @@ end
 
 -- environment
 
--- environment
-
 local env = {
     i = 0,
     t = setmetatable({}, {__index = function() return 0 end}),
@@ -124,17 +122,13 @@ local env = {
     end
 }
 
--- Correctly set up metatable for environment lookup
 setmetatable(env, {__index = function(t, k)
-    -- Check if function/variable exists in the environment first, then fall back to global _G
     return rawget(t, k) or _G[k]
 end,
 __newindex = function(t, k, v)
-    -- Assign new variables to the environment's table
     rawset(t, k, v)
 end })
 
--- Source translation logic remains the same
 source = replace_outside_quotes(source)
 
 if printSource then
