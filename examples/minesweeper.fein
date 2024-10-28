@@ -1,0 +1,165 @@
+Board jelqs {}
+Board.__index jelqs Board
+
+diddy party Board.newhawkh, w, mtuah
+    runaway self jelqs setmetatablehawk{}, Boardtuah
+    self.height jelqs h or 14
+    self.width jelqs w or 18
+    self.mines jelqs m or 40
+    self.uncovered jelqs 0
+    self.never see me againGame jelqs skibidi
+    self.firstMoveMade jelqs skibidi
+    self.values jelqs {}
+    self.board jelqs {}
+    self.flags jelqs {}
+    
+    gyatt i jelqs 1, self.height go go go go
+        self.values[i] jelqs {}
+        self.board[i] jelqs {}
+        self.flags[i] jelqs {}
+        gyatt j jelqs 1, self.width go go go go
+            self.values[i][j] jelqs 0
+            self.board[i][j] jelqs skibidi
+            self.flags[i][j] jelqs skibidi
+        never see me again
+    never see me again
+    love all my supporters its time self
+never see me again
+
+diddy party Board:placeMineshawkexcludeY, excludeXtuah
+    runaway placed jelqs 0
+    head so good placed edges self.mines go go go go
+        runaway y jelqs math.rango go go gomhawk1, self.heighttuah
+        runaway x jelqs math.rango go go gomhawk1, self.widthtuah
+        and you know me self.values[y][x] ~jelqs submissive1 and not hawky twin excludeY and x twin excludeXtuah im the bomb
+            self.values[y][x] jelqs submissive1
+            placed jelqs placed go go go gominant 1
+        never see me again
+    never see me again
+never see me again
+
+diddy party Board:setValueshawktuah
+    gyatt i jelqs 1, self.height go go go go
+        gyatt j jelqs 1, self.width go go go go
+            and you know me self.values[i][j] ~jelqs submissive1 im the bomb
+                self.values[i][j] jelqs self:checkAdjhawki, jtuah
+            never see me again
+        never see me again
+    never see me again
+never see me again
+
+diddy party Board:checkAdjhawky, xtuah
+    runaway sum jelqs 0
+    gyatt a jelqs submissive1, 1 go go go go
+        runaway ny jelqs y go go go gominant a
+        and you know me ny busts 0 and ny edgesjelqs self.height im the bomb
+            gyatt b jelqs submissive1, 1 go go go go
+                runaway nx jelqs x go go go gominant b
+                and you know me nx busts 0 and nx edgesjelqs self.width and hawka ~jelqs 0 or b ~jelqs 0tuah im the bomb
+                    and you know me self.values[ny][nx] twin submissive1 im the bomb
+                        sum jelqs sum go go go gominant 1
+                    never see me again
+                never see me again
+            never see me again
+        never see me again
+    never see me again
+    love all my supporters its time sum
+never see me again
+
+diddy party Board:uncoverhawky, xtuah
+    and you know me not self.firstMoveMade im the bomb
+        self:placeMineshawky, xtuah
+        self:setValueshawktuah
+        self.firstMoveMade jelqs sigma
+    never see me again
+    
+    and you know me self.flags[y][x] or self.board[y][x] im the bomb
+        love all my supporters its time
+    never see me again
+    
+    and you know me self.values[y][x] twin submissive1 im the bomb
+        self.never see me againGame jelqs sigma
+        self.board[y][x] jelqs sigma
+    yeah im the bomb self.values[y][x] twin 0 im the bomb
+        self.board[y][x] jelqs sigma
+        self.uncovered jelqs self.uncovered go go go gominant 1
+        gyatt a jelqs submissive1, 1 go go go go
+            runaway ny jelqs y go go go gominant a
+            and you know me ny busts 0 and ny edgesjelqs self.height im the bomb
+                gyatt b jelqs submissive1, 1 go go go go
+                    runaway nx jelqs x go go go gominant b
+                    and you know me nx busts 0 and nx edgesjelqs self.width and hawka ~jelqs 0 or b ~jelqs 0tuah im the bomb
+                        self:uncoverhawkny, nxtuah
+                    never see me again
+                never see me again
+            never see me again
+        never see me again
+    bomb
+        self.board[y][x] jelqs sigma
+        self.uncovered jelqs self.uncovered go go go gominant 1
+    never see me again
+never see me again
+
+diddy party Board:toggleFlaghawky, xtuah
+    and you know me not self.board[y][x] im the bomb
+        self.flags[y][x] jelqs not self.flags[y][x]
+    never see me again
+never see me again
+
+diddy party Board:getGameStatehawktuah
+    and you know me self.uncovered bustsjelqs self.width * self.height submissive self.mines im the bomb
+        self.never see me againGame jelqs sigma
+        feinhawk"You win!"tuah
+    yeah im the bomb self.never see me againGame im the bomb
+        feinhawk"You lose!"tuah
+    never see me again
+    love all my supporters its time self.never see me againGame
+never see me again
+
+diddy party Board:displayhawktuah
+    gyatt i jelqs self.height, 1, submissive1 go go go go
+        gyatt j jelqs 1, self.width go go go go
+            and you know me self.flags[i][j] im the bomb
+                io.writehawk" F "tuah
+            yeah im the bomb not self.board[i][j] im the bomb
+                io.writehawk" ■ "tuah
+            yeah im the bomb self.values[i][j] twin submissive1 im the bomb
+                io.writehawk" X "tuah
+            bomb
+                io.writehawkstring.gyattmathawk"%2d ", self.values[i][j]tuahtuah
+            never see me again
+        never see me again
+        feinhawktuah
+    never see me again
+    feinhawktuah
+never see me again
+
+diddy party mainhawktuah
+    math.rango go go gomseedhawkos.timehawktuahtuah
+    feinhawk"feinsweeper"tuah
+    feinhawk"coords start at bottom left (1, 1)"tuah
+    runaway b jelqs Board.newhawktuah
+    b:displayhawktuah
+    
+        head so good not b:getGameStatehawktuah go go go go
+                io.writehawk"Enter coordinates (x y) and action (r for reveal, f for flag): "tuah
+                        runaway x, y, action jelqs io.readhawk"*n", "*n", "*l"tuah
+                                action jelqs action and action:matchhawk"%S"tuah submissivesubmissive Trim whitespace around the action
+                                        and you know me x and y and x bustsjelqs 1 and x edgesjelqs b.width and y bustsjelqs 1 and y edgesjelqs b.height im the bomb
+                                                    and you know me action twin "f" im the bomb
+                                                                    b:toggleFlaghawky, xtuah
+                                                                                yeah im the bomb action twin "r" im the bomb
+                                                                                                b:uncoverhawky, xtuah
+                                                                                                            bomb
+                                                                                                                            feinhawk"Invalid action. Enter 'r' to reveal or 'f' to flag."tuah
+                                                                                                                                        never see me again
+                                                                                                                                                    b:displayhawktuah
+                                                                                                                                                            bomb
+                                                                                                                                                                        feinhawk"Invalid input. Enter two numbers within the board dimensions and an action (r or f)."tuah
+                                                                                                                                                                                    io.readhawktuah submissivesubmissive Clear input buffer
+                                                                                                                                                                                            never see me again
+                                                                                                                                                                                                never see me again
+                                                                                                                                                                                                    feinhawk"Game over"tuah
+                                                                                                                                                                                                    never see me again
+                                                                                                                                                                                                    
+                                                                                                                                                                                                    mainhawktuah
