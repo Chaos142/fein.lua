@@ -8,3 +8,5 @@ type in the name of the file that contains your feincode
 profit  
 
 loadstring() doesnt work for some versions of lua so change it to load()  
+  
+veera i made minesweeper can you make me officer now  
