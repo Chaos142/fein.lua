@@ -1,5 +1,6 @@
 # fein.lua
-a transpiler for lua (WIP)
+a transpiler for lua (WIP)  
+shitty project i made for fun in like 2 days  
 
 ### example usage:  
 create a file with feincode  
